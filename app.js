@@ -17,11 +17,13 @@ const ExpressErorr = require("./utils/ExpressError");
 const {campgroundSchema, reviewSchema} = require('./schemas');
 
 //campground routes
-const campgrounds = require("./routes/campgrounds");
+const campgroundsRoutes = require("./routes/campgrounds");
 
 //review routes
-const reviews = require("./routes/reviews");
-const review = require("./models/review");
+const reviewsRoutes = require("./routes/reviews");
+
+//user routes
+const usersRoutes = require("./routes/users");
 
 //connect to mongodb
 async function connect() {
@@ -70,9 +72,11 @@ app.use((req, res, next) => {
 })
 
 //campgrounds router
-app.use("/campgrounds", campgrounds);
+app.use("/campgrounds", campgroundsRoutes);
 //reviews router
-app.use("/campgrounds/:id/reviews", reviews);
+app.use("/campgrounds/:id/reviews", reviewsRoutes);
+//users router
+app.use("/", usersRoutes);
 
 
 // get home page
