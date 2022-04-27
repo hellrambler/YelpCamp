@@ -3,7 +3,7 @@
 <div class="row">
     <h1 class="text-center">Edit Your Campground</h1>
     <div class="col-6 offset-3">
-        <form action="/campgrounds/<%= camp._id %>?_method=PUT" method="POST" novalidate class="validated-form">
+        <form action="/campgrounds/<%= camp._id %>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Campground Title: </label>
                 <input class="form-control" type="text" name="campground[title]" id="title"
@@ -16,9 +16,8 @@
                     placeholder="campground location" value="<%= camp.location %>" required>
             </div>
             <div class="mb-3">
-                <label class="form-label" for="image">Campground Image Url: </label>
-                <input class="form-control" type="text" name="campground[image]" id="image"
-                    placeholder="campground image" value="<%= camp.image %>" required>
+                <label class="form-label" for="image">Add Images: </label>
+                <input type="file" name="image" id="image" multiple>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="price">Campground Price: </label>
