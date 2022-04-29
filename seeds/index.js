@@ -26,14 +26,22 @@ const seedDB = async() => {
         await new Campground({
             title: `${randomDesc} ${randomPlace}`,
             location: `${randomCity.city}, ${randomCity.state}`,
+            geometry : {
+                 type : "Point", 
+                 coordinates : [ randomCity.longitude, randomCity.latitude ] 
+            },
             images: [
                 {
-                    url: 'https://images.unsplash.com/photo-1649014048485-590f93c42936?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MDk0MTA5OQ&ixlib=rb-1.2.1&q=80&w=1080',
-                    filename: 'YelpCamp/o8nfalc2txwllk1ulvfg',
+                    url: 'https://res.cloudinary.com/wenyu-ma/image/upload/v1651104875/YelpCamp/1_dezqvl.jpg',
+                    filename: 'YelpCamp/1_dezqvl',
                 }, 
                 {
-                    url: 'https://images.unsplash.com/photo-1650483434929-4b79e841d8b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MDk0MTE0MQ&ixlib=rb-1.2.1&q=80&w=1080',
-                    filename: 'YelpCamp/o8nfalc2txwllk1ulvfg',
+                    url: 'https://res.cloudinary.com/wenyu-ma/image/upload/v1651104875/YelpCamp/2_swyvjk.jpg',
+                    filename: 'YelpCamp/2_swyvjk',
+                },
+                {
+                    url: 'https://res.cloudinary.com/wenyu-ma/image/upload/v1651104875/YelpCamp/3_jgch81.jpg',
+                    filename: 'YelpCamp/3_jgch81',
                 }
             ],
             description: "Foster Creativity, Independence, & Intellect Through Artmaking, Fun, & Lots Of Fresh Air.",
