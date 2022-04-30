@@ -1,8 +1,8 @@
 <% layout("layouts/boilerplate.ejs") %> 
 
 <div class="row">
-    <h1 class="text-center">Edit Your Campground</h1>
-    <div class="col-6 offset-3">
+    <h1 class="text-center mb-3">Edit Your Campground</h1>
+    <div class="col-md-6 offset-md-3">
         <form action="/campgrounds/<%= camp._id %>?_method=PUT" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Campground Title: </label>
@@ -34,21 +34,25 @@
                 <input class="form-control" type="file" id="image" multiple name="image">
             </div>
             <div class="mb-3">
-                <% camp.images.forEach((img, i) => { %> 
-                    <img src="<%= img.thumbnail %> " class="img-thumbnail" alt="">
-                    <div class="form-check-inline">
-                        <input type="checkbox" name="deleteImages[]" id="image-<%= i %>" value="<%= img.filename %>">
+                <% camp.images.forEach((img, i) => { %>
+                    <div class="mx-auto">
+                        <img src="<%= img.thumbnail %> " class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input type="checkbox" name="deleteImages[]" id="image-<%= i %>" value="<%= img.filename %>">
+                        </div>
+                        <label for="image-<%= i %>">Delete Image</label>
                     </div>
-                    <label for="image-<%= i %>">Delete Image</label>
-                <% })  %> 
+                    <% })  %> 
+                    
 
             </div>
-            <div class="mb-3">
-                <button class="btn btn-info">Update Campground</button>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <a class="btn btn-warning" href="/campgrounds/<%= camp._id %> ">Back To Detail Page </a>
+                <button class="btn btn-success">Update Campground</button>
             </div>
             
         </form>
         <br>
-        <a href="/campgrounds/<%= camp._id %> ">Back To Detail Page of <%= camp.title %> </a>
+        
     </div>
 </div>
